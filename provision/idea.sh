@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "Installing IntelliJ IDEA..."
+echo ">>> Installing IntelliJ IDEA..."
 
 # We need root to install
 [ $(id -u) != "0" ] && exec sudo "$0" "$@"
