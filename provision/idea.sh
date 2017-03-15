@@ -21,8 +21,9 @@ echo $URL
 # Truncate filename
 FILE=$(basename ${URL})
 
-# Set download directory
+# Set download directory and create it if it does not exist
 DEST=~/Downloads/$FILE
+mkdir -p ~/Downloads
 
 echo "Downloading idea-I$ed-$VERSION to $DEST..."
 
@@ -35,6 +36,11 @@ echo "Download complete!"
 DIR="/opt/idea-I$ed-$VERSION"
 
 echo "Installing to $DIR"
+
+if [ -d "$DIR" ]; then
+    echo "Directory alread exists, cleaning it"
+    rm -rf "$DIR"
+fi
 
 # Untar file
 if mkdir ${DIR}; then
@@ -51,9 +57,22 @@ chmod -R +rwx ${DIR}
 DESK=/usr/share/applications/IDEA.desktop
 
 # Add desktop shortcut
-echo "[Desktop Entry]\nEncoding=UTF-8\nName=IntelliJ IDEA\nComment=IntelliJ IDEA\nExec=${BIN}/idea.sh\nIcon=${BIN}/idea.png\nTerminal=false\nStartupNotify=true\nType=Application" -e > ${DESK}
+cat <<EOT >>${DESK}
+[Desktop Entry]
+Encoding=UTF-8
+Name=IntelliJ IDEA
+Comment=IntelliJ IDEA
+Exec=${BIN}/idea.sh
+Icon=${BIN}/idea.png
+Terminal=false
+StartupNotify=true
+Type=Application
+EOT
 
 # Create symlink entry
 ln -sf ${BIN}/idea.sh /usr/local/bin/idea
+
+#Clean the downloaded tar
+rm ~/Downloads/$FILE
 
 echo "Done."
