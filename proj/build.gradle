@@ -1,0 +1,7 @@
+apply from: 'notifier/build.gradle'
+allprojects {
+	apply plugin: 'java'
+	repositories {
+		mavenCentral()
+	}
+}

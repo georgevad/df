@@ -1,0 +1,12 @@
+subprojects.findAll() {
+    group = 'org.example.notifier'
+}
+
+configure(subprojects.findAll {it.group == 'org.example.notifier'} ) {
+	apply plugin: 'java'
+
+	compileJava.doFirst { println 'Another action applied to the "compileJava" task ' \
+            + '\n - group : ' + project.group \
+            + '\n - name : ' + project.name\
+            + '\n - version : ' + project.version}
+}

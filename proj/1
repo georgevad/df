@@ -1,0 +1,2 @@
+apply from: 'notifier/settings.gradle'
+include 'rest' 'notifier' 
