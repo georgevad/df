@@ -14,7 +14,7 @@ ed=C
 VERSION=$(wget "https://www.jetbrains.com/intellij-repository/releases" -qO- | grep -P -o -m 1 "(?<=https://www.jetbrains.com/intellij-repository/releases/com/jetbrains/intellij/idea/BUILD/)[^/]+(?=/)")
 
 # Prepend base URL for download
-URL="https://download.jetbrains.com/idea/ideaI$ed-$VERSION.tar.gz"
+URL="https://www.jetbrains.com/intellij-repository/releases/com/jetbrains/intellij/idea/ideaI$ed/$VERSION/ideaI$ed-$VERSION.zip"
 
 echo $URL
 
@@ -44,7 +44,7 @@ fi
 
 # Untar file
 if mkdir ${DIR}; then
-    tar -xzf ${DEST} -C ${DIR} --strip-components=1
+    unzip ${DEST} -d ${DIR}
 fi
 
 # Grab executable folder
