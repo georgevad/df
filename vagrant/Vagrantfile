@@ -15,7 +15,8 @@ Vagrant.configure("2") do |config|
 #  config.ssh.private_key_path = "ssh/vagrant"
   config.vm.box = "gvad/df"
 #  config.vm.version = "1.0"
-
+  config.ssh.username = "vagrant"
+  config.ssh.password = "vagrant"
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
@@ -70,7 +71,7 @@ end
   # documentation for more information about their specific syntax and use.
 
 #config.vm.provision "shell" do |s|
-  ["provision/java.sh", "provision/docker.sh", "provision/gradle.sh", "provision/idea.sh", "provision/docker_mysql.sh"].each do |script|
+  ["provision/java.sh", "provision/docker.sh", "provision/gradle.sh", "provision/idea.sh", "provision/git_clone.sh", "provision/docker_mysql.sh"].each do |script|
     config.vm.provision "shell", path: script
   end
 
