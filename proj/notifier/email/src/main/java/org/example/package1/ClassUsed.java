@@ -5,7 +5,14 @@ package org.example.package1;
  */
 public class ClassUsed {
 
-    private String unused;
+    private static class InnerClassUnused {}
+
+    private interface InnerIntefaceUnused {}
+
+    private enum InnerEnumUnused{}
+
+    private void methodUnused(){}
+    private String unusedGlobalVariable;
 
     private String used;
     public ClassUsed() {
@@ -15,6 +22,7 @@ public class ClassUsed {
 
 
     public String method(String usedParam, String unusedParam) {
+        String unusedLocalVariable;
         return used + usedParam;
     }
 
