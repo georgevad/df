@@ -15,14 +15,12 @@ public class ClassUsed {
     private String unusedGlobalVariable;
 
     private String used;
-    public ClassUsed() {
+    private ClassUsed() {
 
         used = "";
     }
 
-
     public String method(String usedParam, String unusedParam) {
-        String unusedLocalVariable;
         return used + usedParam;
     }
 
