@@ -21,6 +21,7 @@ public class ClassUsed {
     }
 
     public String method(String usedParam, String unusedParam) {
+        String methodLocalVariableUnused;
         return used + usedParam;
     }
 
