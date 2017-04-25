@@ -20,7 +20,7 @@ public class ClassUsed {
     protected final String UNUSED_PRF = "";
     protected String UNUSED_PR = "";
 
-    private static class InnerClassUnused {}
+    private static class InnerClassUnused extends InnerClassUsed implements InterfaceUsed {}
 
     private interface InnerIntefaceUnused {}
 
@@ -29,6 +29,16 @@ public class ClassUsed {
     private void methodUnused(){}
     private void methodUsed() {}
     private String unusedGlobalVariable;
+
+    private interface InterfaceUsed {
+
+    }
+
+    private static class InnerClassUsed {
+
+    }
+
+
 
     private String used;
     private ClassUsed() {
