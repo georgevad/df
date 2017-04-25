@@ -27,6 +27,7 @@ public class ClassUsed {
     private enum InnerEnumUnused{}
 
     private void methodUnused(){}
+    private void methodUsed() {}
     private String unusedGlobalVariable;
 
     private String used;
@@ -37,6 +38,7 @@ public class ClassUsed {
 
     public String method(String usedParam, String unusedParam) {
         String methodLocalVariableUnused;
+        methodUsed();
         return used + usedParam;
     }
 
